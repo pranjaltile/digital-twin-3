@@ -8,23 +8,23 @@ export function ProjectsShowcase() {
   const projects = [
     {
       id: 1,
-      title: "API Security Framework",
-      description: "Comprehensive framework for securing REST and GraphQL APIs with automated threat detection",
-      tech: ["Node.js", "Security", "Architecture"],
+      title: "Digital Twin 2",
+      description: "AI-powered digital portfolio with intelligent chatbot, real-time analytics, and dynamic content management system",
+      tech: ["Next.js", "AI", "PostgreSQL"],
       link: "/projects",
     },
     {
       id: 2,
-      title: "Threat Intelligence Platform",
-      description: "Real-time threat detection and analysis using machine learning models and SIEM integration",
-      tech: ["Python", "ML", "Analytics"],
+      title: "AuthJS Authentication System",
+      description: "Modern authentication system with NextAuth.js supporting multiple OAuth providers and secure session management",
+      tech: ["Next.js", "AuthJS", "OAuth"],
       link: "/projects",
     },
     {
       id: 3,
-      title: "Cloud Security Auditor",
-      description: "Automated security auditing tool for AWS, GCP, and Azure cloud infrastructure",
-      tech: ["Go", "Cloud", "DevOps"],
+      title: "Healthcare Referral App",
+      description: "HIPAA-compliant patient referral management system with secure document handling and role-based access control",
+      tech: ["React", "Node.js", "HIPAA"],
       link: "/projects",
     },
   ]

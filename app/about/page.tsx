@@ -5,8 +5,8 @@ import { ThreePillars } from "@/components/three-pillars"
 import { Footer } from "@/components/footer"
 
 export const metadata = {
-  title: "About - Cybersecurity Professional",
-  description: "Learn about the person and philosophy behind this digital twin",
+  title: "About - Pranjal Tile | Full Stack Developer",
+  description: "Learn about Pranjal Tile - Full Stack Developer passionate about secure, scalable applications and AI integration",
 }
 
 export default function AboutPage() {

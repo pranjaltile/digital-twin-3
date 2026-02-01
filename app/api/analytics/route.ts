@@ -52,17 +52,17 @@ export async function GET(req: NextRequest) {
         orderBy: { _count: { severity: "desc" } },
       }),
       
-      // Recent attack timeline (last 24 hours, grouped by hour)
-      prisma.$queryRaw`
-        SELECT 
-          DATE_TRUNC('hour', timestamp) as hour,
-          COUNT(*) as count,
-          attack_type as "attackType"
-        FROM "AttackLog"
-        WHERE timestamp >= ${last24Hours}
-        GROUP BY hour, attack_type
-        ORDER BY hour DESC
-      `,
+      // Recent attacks (last 100)
+      prisma.attackLog.findMany({
+        take: 100,
+        orderBy: { timestamp: "desc" },
+        where: { timestamp: { gte: last24Hours } },
+        select: {
+          timestamp: true,
+          attackType: true,
+          severity: true,
+        },
+      }),
     ]);
 
     // Calculate threat level

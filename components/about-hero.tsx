@@ -9,44 +9,43 @@ export function AboutHero() {
           <div className="space-y-6">
             <div>
               <p className="text-cyan-400 font-mono text-sm mb-2">ABOUT ME</p>
-              <h1 className="text-5xl font-bold text-white mb-4">Alex Chen</h1>
-              <p className="text-2xl text-slate-300">Cybersecurity Engineer & AI Enthusiast</p>
+              <h1 className="text-5xl font-bold text-white mb-4">Pranjal Tile</h1>
+              <p className="text-2xl text-slate-300">Full Stack Developer & Cybersecurity Enthusiast</p>
             </div>
 
             <div className="space-y-4 text-slate-300 leading-relaxed">
               <p>
-                I&apos;m a cybersecurity professional dedicated to building secure systems and understanding the
-                adversarial landscape. This digital twin represents my commitment to continuous learning and transparent
-                security practices.
+                I&apos;m a passionate full-stack developer focused on building secure, scalable applications with modern
+                technologies. This digital twin represents my journey in software development, cybersecurity, and AI integration.
               </p>
 
               <p>
-                With expertise spanning web application security, cloud infrastructure, and emerging AI security
-                challenges, I help organizations defend against evolving threats while fostering a culture of security
-                awareness.
+                With experience in Next.js, React, Node.js, and cloud technologies, I create production-ready applications
+                that prioritize security, performance, and user experience. My projects range from AI-powered portfolios to
+                HIPAA-compliant healthcare systems.
               </p>
 
               <p>
-                This portfolio showcases not just my work, but also my philosophy: security should be visible, testable,
-                and educational.
+                This portfolio showcases not just my technical skills, but also my commitment to building intelligent,
+                self-defending systems that learn and adapt - a living example of modern full-stack development.
               </p>
             </div>
 
             <div className="pt-4">
               <p className="text-sm text-slate-400">
-                Based in San Francisco • Available for consulting • Open to security research collaboration
+                Full Stack Developer • Open to opportunities • Passionate about secure application development
               </p>
             </div>
           </div>
 
           {/* Right - Image/Info */}
           <div className="space-y-6">
-            <div className="aspect-square rounded-lg border border-cyan-500/30 bg-slate-900/50 glass-dark overflow-hidden">
-              <img
-                src="/cybersecurity-professional-working-at-desk.jpg"
-                alt="Alex Chen"
-                className="w-full h-full object-cover"
-              />
+            <div className="aspect-square rounded-lg border border-cyan-500/30 bg-gradient-to-br from-slate-800 to-slate-900 glass-dark flex items-center justify-center">
+              <div className="text-cyan-400/20">
+                <svg className="w-32 h-32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </div>
             </div>
 
             <Card className="border-cyan-500/30 bg-cyan-500/5">

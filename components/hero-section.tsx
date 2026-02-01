@@ -18,13 +18,13 @@ export function HeroSection() {
       <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
         <div className="space-y-4">
           <div className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-mono">
-            Security engineer • Ai enthusiast
+            Full Stack Developer • Security Enthusiast
           </div>
 
           <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
-            I&apos;m Pranjal Dnyaneshwar Tile! <br />{" "}
+            I&apos;m Pranjal Tile <br />{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-              Cybersecurity Engineer
+              Full Stack Developer
             </span>
           </h1>
 
@@ -54,10 +54,13 @@ export function HeroSection() {
           </button>
         </div>
 
-        {/* Featured image placeholder */}
+        {/* Featured visual */}
         <div className="pt-12 relative">
-          <div className="mx-auto max-w-3xl aspect-video rounded-lg border border-cyan-500/30 bg-slate-900/50 glass-dark overflow-hidden">
-            <img src="/cybersecurity-dashboard-with-terminal-interface.jpg" alt="Security dashboard" className="w-full h-full object-cover" />
+          <div className="mx-auto max-w-3xl aspect-video rounded-lg border border-cyan-500/30 bg-gradient-to-br from-slate-800 to-slate-900 glass-dark flex items-center justify-center">
+            <div className="text-center space-y-4">
+              <Shield className="w-24 h-24 text-cyan-400/20 mx-auto" />
+              <p className="text-slate-500 font-mono text-sm">Digital Twin III - Live & Learning</p>
+            </div>
           </div>
         </div>
       </div>
