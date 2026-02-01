@@ -48,7 +48,7 @@ export function AttackLog() {
     const matchesFilter =
       filter === "All" || attack.severity === filter || (filter === "Today" && true) || (filter === "This Week" && true)
     const matchesSearch =
-      attack.endpoint.includes(searchTerm) || attack.type.toLowerCase().includes(searchTerm.toLowerCase())
+      attack.endpoint.includes(searchTerm) || attack.attackType.toLowerCase().includes(searchTerm.toLowerCase())
     return matchesFilter && matchesSearch
   })
 
