@@ -276,4 +276,4 @@ If you have any questions or need help with setup, please open an issue in the r
 
 ---
 
-Made with care by Pranjal Tile
+Made by Pranjal Tile
