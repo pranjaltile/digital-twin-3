@@ -1,0 +1,132 @@
+// Digital Twin III - Database Schema
+// Tracks attacks, analytics, content, and learning data
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== PILLAR 2: DEFEND ====================
+
+// Attack Log - Every security incident
+model AttackLog {
+  id            String   @id @default(cuid())
+  timestamp     DateTime @default(now())
+  ipAddress     String
+  userAgent     String?
+  attackType    AttackType
+  severity      Severity
+  endpoint      String   // Which page/API was targeted
+  payload       String?  @db.Text // The malicious input
+  blocked       Boolean  @default(true)
+  detectionMethod String // "arcjet", "prompt-injection-guard", "rate-limit", etc.
+  metadata      Json?    // Additional context from Arcjet
+  
+  @@index([timestamp])
+  @@index([attackType])
+  @@index([severity])
+}
+
+enum AttackType {
+  PROMPT_INJECTION
+  SQL_INJECTION
+  XSS
+  BOT_TRAFFIC
+  RATE_LIMIT_EXCEEDED
+  SUSPICIOUS_PATTERN
+  DDoS_ATTEMPT
+  INVALID_INPUT
+}
+
+enum Severity {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+// Threat Intelligence - Aggregated patterns
+model ThreatIntel {
+  id              String   @id @default(cuid())
+  date            DateTime @default(now())
+  totalAttempts   Int      @default(0)
+  uniqueIPs       Int      @default(0)
+  topAttackType   AttackType?
+  threatLevel     String   // "LOW", "ELEVATED", "HIGH"
+  insights        String?  @db.Text
+  
+  @@unique([date])
+}
+
+// ==================== PILLAR 1: REPRESENT ====================
+
+// Blog Posts - Created by you or AI
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String   @db.Text
+  content     String   @db.Text
+  tags        String[]
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  createdBy   String   @default("ai") // "human" or "ai"
+  views       Int      @default(0)
+  
+  @@index([published])
+  @@index([createdAt])
+}
+
+// Projects - Your portfolio work
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String   @db.Text
+  technologies String[]
+  liveUrl     String?
+  githubUrl   String?
+  imageUrl    String?
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  order       Int      @default(0)
+  
+  @@index([featured])
+  @@index([order])
+}
+
+// ==================== PILLAR 3: LEARN ====================
+
+// AI Conversations - Learning from interactions
+model Conversation {
+  id          String   @id @default(cuid())
+  timestamp   DateTime @default(now())
+  userMessage String   @db.Text
+  aiResponse  String   @db.Text
+  ipAddress   String
+  userAgent   String?
+  sentiment   String?  // "positive", "neutral", "negative"
+  hadIssue    Boolean  @default(false)
+  
+  @@index([timestamp])
+}
+
+// Analytics Events - Visitor behavior
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  timestamp DateTime @default(now())
+  eventType String   // "page_view", "chatbot_open", "project_click", etc.
+  page      String
+  ipAddress String
+  userAgent String?
+  metadata  Json?
+  
+  @@index([timestamp])
+  @@index([eventType])
+}
