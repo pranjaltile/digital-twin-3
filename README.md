@@ -1,39 +1,39 @@
-# 🛡️ Digital Twin III
+# Digital Twin III
 
-> **A Living, Learning, Self-Defending Digital Presence**
+> A Living, Learning, Self-Defending Digital Presence
 
-An AI-powered cybersecurity portfolio that demonstrates modern full-stack development with intelligent chatbot, real-time threat detection, and advanced security analytics.
+An AI-powered cybersecurity portfolio demonstrating modern full-stack development with intelligent chatbot, real-time threat detection, and advanced security analytics.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.0-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Prisma](https://img.shields.io/badge/Prisma-5.22-2D3748?style=flat-square&logo=prisma)](https://www.prisma.io/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-## ✨ Features
+## Features
 
-### 🎯 Three Pillars Architecture
+### Three Pillars Architecture
 
-#### 1️⃣ **REPRESENT** - AI-Powered Digital Twin
-- 🤖 Intelligent chatbot powered by Groq (Llama 3.3 70B)
-- 💬 Real-time streaming responses with Vercel AI SDK
-- 🧠 Context-aware conversations about portfolio and projects
-- 🔒 Built-in prompt injection protection
+#### 1. REPRESENT - AI-Powered Digital Twin
+- Intelligent chatbot powered by Groq (Llama 3.3 70B)
+- Real-time streaming responses with Vercel AI SDK
+- Context-aware conversations about portfolio and projects
+- Built-in prompt injection protection
 
-#### 2️⃣ **DEFEND** - Multi-Layer Security System
-- 🛡️ Arcjet security integration (bot detection, rate limiting, OWASP protection)
-- 🎯 Real-time attack detection and logging
-- 📊 Attack pattern analysis (SQL injection, XSS, prompt injection, DDoS)
-- 🚨 Three-tier security validation (Arcjet → Pattern Matching → Database Logging)
-- ⚡ Live attack feed with severity classification
+#### 2. DEFEND - Multi-Layer Security System
+- Arcjet security integration (bot detection, rate limiting, OWASP protection)
+- Real-time attack detection and logging
+- Attack pattern analysis (SQL injection, XSS, prompt injection, DDoS)
+- Three-tier security validation (Arcjet → Pattern Matching → Database Logging)
+- Live attack feed with severity classification
 
-#### 3️⃣ **LEARN** - Advanced Analytics Dashboard
-- 📈 Real-time security metrics and statistics
-- 🔍 Attack distribution by type and severity
-- ⏱️ 24-hour and 7-day threat analysis
-- 🎨 Interactive data visualization
-- 🌐 Threat level monitoring (LOW → ELEVATED → HIGH → CRITICAL)
+#### 3. LEARN - Advanced Analytics Dashboard
+- Real-time security metrics and statistics
+- Attack distribution by type and severity
+- 24-hour and 7-day threat analysis
+- Interactive data visualization
+- Threat level monitoring (LOW → ELEVATED → HIGH → CRITICAL)
 
-## 🚀 Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework:** Next.js 16.0 (App Router)
@@ -55,7 +55,7 @@ An AI-powered cybersecurity portfolio that demonstrates modern full-stack develo
 - **Security Layer:** Arcjet
 - **Deployment Ready:** Vercel-compatible
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js 20.11.1 or higher
@@ -114,7 +114,7 @@ npm run dev
 
 Visit [http://localhost:3000](http://localhost:3000) to see your application.
 
-## 🗄️ Database Schema
+## Database Schema
 
 The application uses six core models:
 
@@ -125,42 +125,42 @@ The application uses six core models:
 - **Conversation** - AI chatbot interaction history
 - **AnalyticsEvent** - User behavior and event tracking
 
-## 🎮 Features Showcase
+## Application Structure
 
-### 🏠 Home Page
-- Hero section with CTA buttons
+### Home Page
+- Hero section with call-to-action buttons
 - Live attack statistics bar
 - Real-time attack feed
 - AI chatbot widget
 
-### 📊 Dashboard (`/dashboard`)
+### Dashboard (`/dashboard`)
 - 24-hour and 7-day attack statistics
 - Attack distribution by type and severity
 - Threat level indicator
 - Hourly attack rate monitoring
 
-### 🎯 Hack-Me Page (`/hack-me`)
+### Hack-Me Page (`/hack-me`)
 - Ethical hacking playground
 - Test security defenses with real attack patterns
 - Live feedback on blocked attacks
 - Educational security demonstrations
 
-### 💼 Projects (`/projects`)
+### Projects (`/projects`)
 - Digital Twin 2 - AI-powered portfolio
 - AuthJS Authentication System - OAuth integration
 - Healthcare Referral App - HIPAA-compliant system
 
-### 📝 Blog (`/blog`)
+### Blog (`/blog`)
 - Security research articles
 - Technical tutorials
 - AI and cybersecurity insights
 
-### 👤 About (`/about`)
+### About (`/about`)
 - Professional background
 - Philosophy and approach
 - Skills and expertise
 
-## 🔐 Security Features
+## Security Features
 
 ### Attack Detection
 - **Prompt Injection** - Pattern-based detection for LLM exploits
@@ -177,7 +177,7 @@ The application uses six core models:
 4. **Pattern Matching** - Custom regex-based attack detection
 5. **Database Logging** - Comprehensive attack audit trail
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 digital-twin-3/
@@ -204,7 +204,7 @@ digital-twin-3/
 └── public/                   # Static assets
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Build for Production
 ```bash
@@ -224,7 +224,7 @@ Environment variables needed in production:
 - `ARCJET_KEY`
 - `NEXT_PUBLIC_APP_URL`
 
-## 🛠️ Available Scripts
+## Available Scripts
 
 ```bash
 npm run dev          # Start development server
@@ -239,7 +239,7 @@ npm run db:migrate   # Run database migrations
 npm run db:studio    # Open Prisma Studio
 ```
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -249,18 +249,18 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
+## Author
 
 **Pranjal Tile**
 - Full Stack Developer & Security Enthusiast
 - Portfolio: [Live Demo](#)
 - GitHub: [@pranjaltile](https://github.com/pranjaltile)
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [Next.js](https://nextjs.org/) - The React Framework
 - [Prisma](https://www.prisma.io/) - Next-generation ORM
@@ -270,11 +270,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [Vercel](https://vercel.com/) - Deployment platform
 - [Radix UI](https://www.radix-ui.com/) - UI components
 
-## 📞 Support
+## Support
 
 If you have any questions or need help with setup, please open an issue in the repository.
 
 ---
 
-<p align="center">Made with ❤️ by Pranjal Tile</p>
-<p align="center">⭐ Star this repository if you find it helpful!</p>
+Made with care by Pranjal Tile
