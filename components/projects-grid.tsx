@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github, Star } from "lucide-react"
+import { ExternalLink, Github } from "lucide-react"
 
 export function ProjectsGrid() {
   const projects = [
@@ -11,7 +11,7 @@ export function ProjectsGrid() {
       description: "AI-powered digital portfolio with intelligent chatbot, real-time analytics, and dynamic content management system.",
       category: "Full Stack",
       tags: ["Next.js", "AI", "PostgreSQL", "TypeScript"],
-      stars: 0,
+      image: "/digitaltwin2.png",
       links: {
         github: "https://github.com/pranjaltile/digital-twin-2",
         demo: "https://digital-twin-2-psi.vercel.app/",
@@ -24,7 +24,7 @@ export function ProjectsGrid() {
       description: "Modern authentication system with NextAuth.js supporting multiple OAuth providers and secure session management.",
       category: "Authentication",
       tags: ["Next.js", "AuthJS", "Security", "OAuth"],
-      stars: 0,
+      image: "/authjs.png",
       links: {
         github: "https://github.com/pranjaltile/Nextjs_App.git",
         demo: "https://nextjs-app-ebon-seven.vercel.app/",
@@ -37,7 +37,7 @@ export function ProjectsGrid() {
       description: "HIPAA-compliant patient referral management system with secure document handling and role-based access control.",
       category: "Healthcare",
       tags: ["React", "Node.js", "HIPAA", "Security"],
-      stars: 0,
+      image: "/healthcarereferral.png",
       links: {
         github: "https://github.com/pranjaltile/e-referral-frontend-demo.git",
         demo: "https://e-referral-frontend-demo.vercel.app/",
@@ -50,7 +50,7 @@ export function ProjectsGrid() {
       description: "A microservices-based application that enables: Registering multiple RTSP cameras, Viewing live WebRTC camera feeds in the browser, Real-time face detection with overlays, Instant alerts, pushed via WebSockets",
       category: "Full Stack - using bakend functionalities of Typescript",
       tags: ["Typescript", "Prisma", "Vercel", "Go worker - for Camera processing", "WebRTC streams"],
-      stars: 0,
+      image: "/camera.png",
       links: {
         github: "https://github.com/pranjaltile/Multi-camera_Face-detection.git",
         demo: "https://multi-camera-face-detection.vercel.app/",
@@ -63,7 +63,7 @@ export function ProjectsGrid() {
       description: "A robust Python-based system for processing electronic referrals using the FHIR (Fast Healthcare Interoperability Resources) standard. This system processes incoming FHIR referrals, extracts relevant information, and persists it to a PostgreSQL database while providing standardized FHIR Operation Outcome responses.",
       category: "Backend API - using AWS Lambda Function",
       tags: ["Python", "FHIR", "PostgreSQL", "AWS Lambda", "Prisma"],
-      stars: 0,
+      image: "/Datapipeline.png",
       links: {
         github: "https://github.com/pranjaltile/Data-pipeline-on-AWS_Lambda_Function.git",
         demo: "#",
@@ -76,7 +76,7 @@ export function ProjectsGrid() {
       description: "A secure and efficient protocol for managing AI model context in real-time applications. MCP allows developers to define, update, and retrieve contextual information for AI models, enabling dynamic interactions and improved performance while ensuring data privacy and security.",
       category: "Protocol Design",
       tags: ["MCP", "Python", "Data Privacy"],
-      stars: 0,
+      image: "/mcp.png",
       links: {
         github: "https://github.com/pranjaltile/MCP--Model-Context-Protocol.git",
         demo: "#",
@@ -93,11 +93,14 @@ export function ProjectsGrid() {
             key={project.id}
             className="group border-slate-700/50 bg-slate-900/50 hover:border-cyan-500/50 transition-all duration-300 overflow-hidden glass-dark flex flex-col"
           >
-            {/* Project placeholder */}
-            <div className="aspect-video bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-b border-slate-700/50">
-              <div className="text-slate-600">
-                <Github className="w-12 h-12" />
-              </div>
+            {/* Project image */}
+            <div className="aspect-video bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center border-b border-slate-700/50 overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="p-6 flex flex-col flex-1 space-y-4">
@@ -119,14 +122,6 @@ export function ProjectsGrid() {
                     {tag}
                   </Badge>
                 ))}
-              </div>
-
-              {/* Metrics */}
-              <div className="pt-4 border-t border-slate-700/50 flex items-center">
-                <div className="flex items-center gap-1">
-                  <Star className="w-4 h-4 text-yellow-500" />
-                  <span className="text-sm text-slate-400">{project.stars}</span>
-                </div>
               </div>
 
               {/* Links */}

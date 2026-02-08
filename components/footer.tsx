@@ -81,7 +81,7 @@ export function Footer() {
             <h3 className="font-semibold text-white mb-4">Connect</h3>
             <div className="flex gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/pranjaltile"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-cyan-400 transition-colors"
