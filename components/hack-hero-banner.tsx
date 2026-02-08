@@ -1,7 +1,16 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Shield, Target } from "lucide-react"
 
 export function HackHeroBanner() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <section className="relative py-20 px-4 overflow-hidden border-b border-slate-700/50">
       {/* Background gradient */}
@@ -25,11 +34,15 @@ export function HackHeroBanner() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-6 text-lg gap-2">
+            <Button 
+              onClick={() => scrollToSection("attack-vectors")}
+              className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-6 text-lg gap-2"
+            >
               <Shield className="w-5 h-5" />
               Start Testing
             </Button>
             <Button
+              onClick={() => scrollToSection("instructions")}
               variant="outline"
               className="border-red-500/50 text-red-400 hover:bg-red-500/10 font-semibold px-8 py-6 text-lg gap-2 bg-transparent"
             >

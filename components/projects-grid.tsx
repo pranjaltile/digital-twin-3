@@ -12,10 +12,9 @@ export function ProjectsGrid() {
       category: "Full Stack",
       tags: ["Next.js", "AI", "PostgreSQL", "TypeScript"],
       stars: 0,
-      score: 95,
       links: {
         github: "https://github.com/pranjaltile/digital-twin-2",
-        demo: "#",
+        demo: "https://digital-twin-2-psi.vercel.app/",
         blog: "#",
       },
     },
@@ -26,10 +25,9 @@ export function ProjectsGrid() {
       category: "Authentication",
       tags: ["Next.js", "AuthJS", "Security", "OAuth"],
       stars: 0,
-      score: 90,
       links: {
-        github: "#",
-        demo: "#",
+        github: "https://github.com/pranjaltile/Nextjs_App.git",
+        demo: "https://nextjs-app-ebon-seven.vercel.app/",
         blog: "#",
       },
     },
@@ -40,13 +38,51 @@ export function ProjectsGrid() {
       category: "Healthcare",
       tags: ["React", "Node.js", "HIPAA", "Security"],
       stars: 0,
-      score: 92,
       links: {
-        github: "#",
-        demo: "#",
+        github: "https://github.com/pranjaltile/e-referral-frontend-demo.git",
+        demo: "https://e-referral-frontend-demo.vercel.app/",
         blog: "#",
       },
     },
+    {
+      id: 4,
+      title: "Multi-camera Face Detection",
+      description: "A microservices-based application that enables: Registering multiple RTSP cameras, Viewing live WebRTC camera feeds in the browser, Real-time face detection with overlays, Instant alerts, pushed via WebSockets",
+      category: "Full Stack - using bakend functionalities of Typescript",
+      tags: ["Typescript", "Prisma", "Vercel", "Go worker - for Camera processing", "WebRTC streams"],
+      stars: 0,
+      links: {
+        github: "https://github.com/pranjaltile/Multi-camera_Face-detection.git",
+        demo: "https://multi-camera-face-detection.vercel.app/",
+        blog: "#",
+      }, 
+    },
+    {
+      id: 5,
+      title: "Data pipeline on AWS Lambda Function",
+      description: "A robust Python-based system for processing electronic referrals using the FHIR (Fast Healthcare Interoperability Resources) standard. This system processes incoming FHIR referrals, extracts relevant information, and persists it to a PostgreSQL database while providing standardized FHIR Operation Outcome responses.",
+      category: "Backend API - using AWS Lambda Function",
+      tags: ["Python", "FHIR", "PostgreSQL", "AWS Lambda", "Prisma"],
+      stars: 0,
+      links: {
+        github: "https://github.com/pranjaltile/Data-pipeline-on-AWS_Lambda_Function.git",
+        demo: "#",
+        blog: "#",
+      }, 
+    },
+    {
+      id: 6,
+      title: "MCP - Model Context Protocol",
+      description: "A secure and efficient protocol for managing AI model context in real-time applications. MCP allows developers to define, update, and retrieve contextual information for AI models, enabling dynamic interactions and improved performance while ensuring data privacy and security.",
+      category: "Protocol Design",
+      tags: ["MCP", "Python", "Data Privacy"],
+      stars: 0,
+      links: {
+        github: "https://github.com/pranjaltile/MCP--Model-Context-Protocol.git",
+        demo: "#",
+        blog: "#",
+      }, 
+    }
   ]
 
   return (
@@ -86,18 +122,10 @@ export function ProjectsGrid() {
               </div>
 
               {/* Metrics */}
-              <div className="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center gap-1">
-                    <Star className="w-4 h-4 text-yellow-500" />
-                    <span className="text-sm text-slate-400">{project.stars}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-12 h-1 bg-slate-700 rounded-full overflow-hidden">
-                      <div className="h-full bg-green-500 rounded-full" style={{ width: `${project.score}%` }}></div>
-                    </div>
-                    <span className="text-xs text-green-400">{project.score}%</span>
-                  </div>
+              <div className="pt-4 border-t border-slate-700/50 flex items-center">
+                <div className="flex items-center gap-1">
+                  <Star className="w-4 h-4 text-yellow-500" />
+                  <span className="text-sm text-slate-400">{project.stars}</span>
                 </div>
               </div>
 

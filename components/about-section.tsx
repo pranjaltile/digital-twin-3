@@ -62,7 +62,12 @@ export function AboutSection() {
           {/* Right side - Skills */}
           <div className="space-y-6">
             <div className="aspect-square rounded-lg border border-cyan-500/30 bg-slate-900/50 glass-dark flex items-center justify-center overflow-hidden">
-              <img src="/cybersecurity-professional-working-at-desk.jpg" alt="Professional" className="w-full h-full object-cover" />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/My_image.png" 
+                alt="Pranjal Tile" 
+                className="w-full h-full object-cover" 
+              />
             </div>
 
             <div>

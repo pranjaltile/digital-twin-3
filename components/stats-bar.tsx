@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Shield, MessageSquare, Activity } from "lucide-react"
 
 export function StatsBar() {
@@ -9,31 +9,49 @@ export function StatsBar() {
     conversations: 0,
     systemStatus: "PROTECTED",
   })
+  const [displayStats, setDisplayStats] = useState({
+    attacksBlocked: 0,
+    conversations: 0,
+  })
+  const animationRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
-    // Animate numbers
-    let attacksFrame = 0
-    let conversationsFrame = 0
-
-    const interval = setInterval(() => {
-      if (attacksFrame < 127) {
-        attacksFrame += Math.ceil(127 / 30)
-        setStats((prev) => ({
-          ...prev,
-          attacksBlocked: Math.min(attacksFrame, 127),
-        }))
-      }
-      if (conversationsFrame < 342) {
-        conversationsFrame += Math.ceil(342 / 30)
-        setStats((prev) => ({
-          ...prev,
-          conversations: Math.min(conversationsFrame, 342),
-        }))
-      }
-    }, 50)
-
+    fetchStats()
+    const interval = setInterval(fetchStats, 30000) // Refresh every 30s
     return () => clearInterval(interval)
   }, [])
+
+  const fetchStats = async () => {
+    try {
+      const response = await fetch("/api/analytics")
+      const data = await response.json()
+      
+      const newStats = {
+        attacksBlocked: data.summary?.attacksLast24h || 0,
+        conversations: data.summary?.totalConversations || 0,
+        systemStatus: data.summary?.threatLevel === "CRITICAL" ? "ALERT" : "PROTECTED",
+      }
+      
+      setStats(newStats)
+      animateNumbers(newStats.attacksBlocked, newStats.conversations)
+    } catch (error) {
+      console.error("Failed to fetch stats:", error)
+    }
+  }
+
+  const animateNumbers = (targetAttacks: number, targetConversations: number) => {
+    if (animationRef.current) clearInterval(animationRef.current)
+    
+    let frame = 0
+    animationRef.current = setInterval(() => {
+      frame++
+      setDisplayStats({
+        attacksBlocked: Math.min(Math.ceil((targetAttacks / 30) * frame), targetAttacks),
+        conversations: Math.min(Math.ceil((targetConversations / 30) * frame), targetConversations),
+      })
+      if (frame >= 30 && animationRef.current) clearInterval(animationRef.current)
+    }, 50)
+  }
 
   return (
     <section className="py-8 px-4 border-y border-slate-700/50 bg-slate-950/50 backdrop-blur-sm">
@@ -46,7 +64,7 @@ export function StatsBar() {
             </div>
             <div>
               <p className="text-sm text-slate-400">Attacks Blocked Today</p>
-              <p className="text-3xl font-bold text-white">{stats.attacksBlocked}</p>
+              <p className="text-3xl font-bold text-white">{displayStats.attacksBlocked}</p>
             </div>
           </div>
 
@@ -57,7 +75,7 @@ export function StatsBar() {
             </div>
             <div>
               <p className="text-sm text-slate-400">AI Conversations</p>
-              <p className="text-3xl font-bold text-white">{stats.conversations}</p>
+              <p className="text-3xl font-bold text-white">{displayStats.conversations}</p>
             </div>
           </div>
 

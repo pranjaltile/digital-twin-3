@@ -21,6 +21,8 @@ export async function GET(req: NextRequest) {
       totalAttacks,
       attacksLast24h,
       attacksLast7Days,
+      blockedAttacks,
+      totalConversations,
       attacksByType,
       attacksBySeverity,
       recentAttacks,
@@ -37,6 +39,14 @@ export async function GET(req: NextRequest) {
       prisma.attackLog.count({
         where: { timestamp: { gte: last7Days } },
       }),
+      
+      // Blocked attacks count (for success rate calculation)
+      prisma.attackLog.count({
+        where: { blocked: true },
+      }),
+      
+      // Total conversations
+      prisma.conversation.count(),
       
       // Group by attack type
       prisma.attackLog.groupBy({
@@ -72,6 +82,9 @@ export async function GET(req: NextRequest) {
     else if (hourlyRate > 50) threatLevel = "HIGH";
     else if (hourlyRate > 10) threatLevel = "ELEVATED";
 
+    // Calculate blocked rate
+    const blockedRate = totalAttacks > 0 ? Math.round((blockedAttacks / totalAttacks) * 100) : 100;
+
     return NextResponse.json({
       summary: {
         totalAttacks,
@@ -79,6 +92,8 @@ export async function GET(req: NextRequest) {
         attacksLast7Days,
         threatLevel,
         hourlyRate: Math.round(hourlyRate),
+        blockedRate,
+        totalConversations,
       },
       attacksByType: attacksByType.map((item: any) => ({
         type: item.attackType,

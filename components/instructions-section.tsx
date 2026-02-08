@@ -12,7 +12,7 @@ export function InstructionsSection() {
   ]
 
   return (
-    <section className="py-16 px-4 bg-slate-900/50">
+    <section id="instructions" className="py-16 px-4 bg-slate-900/50">
       <div className="max-w-4xl mx-auto space-y-6">
         <div className="flex items-start gap-3">
           <AlertCircle className="w-6 h-6 text-orange-500 flex-shrink-0 mt-1" />

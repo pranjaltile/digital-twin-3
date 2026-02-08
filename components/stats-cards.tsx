@@ -37,13 +37,13 @@ export function StatsCards() {
       setAnalytics(data)
       
       // Animate the numbers
-      animateStats(data.summary.attacksLast24h, data.attacksBySeverity)
+      animateStats(data.summary.attacksLast24h, data.attacksBySeverity, data.summary.blockedRate || 100)
     } catch (error) {
       console.error("Failed to fetch analytics:", error)
     }
   }
 
-  const animateStats = (totalAttacks: number, severityData: any[]) => {
+  const animateStats = (totalAttacks: number, severityData: any[], blockedRate: number) => {
     const criticalCount = severityData.find((s) => s.severity === "CRITICAL")?.count || 0
     let frame = 0
 
@@ -51,7 +51,7 @@ export function StatsCards() {
       frame++
       setAnimatedStats({
         totalAttacks: Math.min(Math.ceil((totalAttacks / 30) * frame), totalAttacks),
-        blockedRate: Math.min(Math.ceil((98 / 30) * frame), 98),
+        blockedRate: Math.min(Math.ceil((blockedRate / 30) * frame), blockedRate),
         critical: Math.min(Math.ceil((criticalCount / 30) * frame), criticalCount),
       })
       if (frame >= 30) clearInterval(interval)

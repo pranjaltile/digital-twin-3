@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { ChatbotWidget } from "@/components/chatbot-widget"
 import { HackHeroBanner } from "@/components/hack-hero-banner"
 import { InstructionsSection } from "@/components/instructions-section"
+import { AttackVectors } from "@/components/attack-vectors"
 import { LiveDemonstration } from "@/components/live-demonstration"
 import { Footer } from "@/components/footer"
 
@@ -19,6 +20,7 @@ export default function HackMePage() {
       <main className="pt-8 pb-20">
         <HackHeroBanner />
         <InstructionsSection />
+        <AttackVectors />
         <LiveDemonstration />
       </main>
 

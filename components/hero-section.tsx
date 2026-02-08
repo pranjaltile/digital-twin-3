@@ -1,8 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield } from "lucide-react"
+import { ArrowRight, Shield, MessageCircle } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function HeroSection() {
   return (
@@ -37,30 +38,34 @@ export function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
           <Link href="/projects">
-            <Button className="bg-cyan-600 hover:bg-cyan-700 text-slate-950 font-semibold px-8 py-6 text-lg gap-2 glow-cyan">
+            <Button className="w-full sm:w-56 h-14 bg-cyan-600 hover:bg-cyan-700 text-slate-950 font-semibold text-lg gap-2 glow-cyan">
               View Projects <ArrowRight className="w-5 h-5" />
             </Button>
           </Link>
           <Link href="/hack-me">
-            <Button className="border border-cyan-500/50 hover:border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 font-semibold px-8 py-6 text-lg gap-2">
+            <Button className="w-full sm:w-56 h-14 bg-red-600 hover:bg-red-700 text-white font-semibold text-lg gap-2">
               Test My Defenses <Shield className="w-5 h-5" />
             </Button>
           </Link>
-          <button
+          <Button
             onClick={() => document.getElementById("chatbot-trigger")?.click()}
-            className="border border-slate-600 hover:border-slate-500 text-slate-300 hover:bg-slate-900 font-semibold px-8 py-6 text-lg rounded-md transition-colors"
+            className="w-full sm:w-56 h-14 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 font-semibold text-lg gap-2"
           >
-            Talk to My AI
-          </button>
+            Talk to My AI <MessageCircle className="w-5 h-5" />
+          </Button>
         </div>
 
         {/* Featured visual */}
         <div className="pt-12 relative">
-          <div className="mx-auto max-w-3xl aspect-video rounded-lg border border-cyan-500/30 bg-gradient-to-br from-slate-800 to-slate-900 glass-dark flex items-center justify-center">
-            <div className="text-center space-y-4">
-              <Shield className="w-24 h-24 text-cyan-400/20 mx-auto" />
-              <p className="text-slate-500 font-mono text-sm">Digital Twin III - Live & Learning</p>
-            </div>
+          <div className="mx-auto max-w-3xl rounded-lg border border-cyan-500/30 overflow-hidden glass-dark">
+            <Image
+              src="/cyber-security-la-gi-1.png"
+              alt="Cybersecurity Digital Twin"
+              width={900}
+              height={500}
+              className="w-full h-auto object-cover"
+              priority
+            />
           </div>
         </div>
       </div>
